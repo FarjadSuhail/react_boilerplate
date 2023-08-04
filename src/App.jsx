@@ -6,9 +6,16 @@ import Authentication from "./pages/Authentication";
 import Build from "./pages/Build";
 import Settings from "./pages/Settings";
 import Stroage from "./pages/Stroage";
+import Login from "./pages/auth/Login";
+import Header from "./layouts/header/Header";
 
 const App = () => {
   return (
+    <>
+    <div className="App">
+      <Header />
+      <Login />
+      </div>    
     <RootLayout>
       <Routes>
         <Route path="/" element={<AllApps />} />
@@ -19,6 +26,8 @@ const App = () => {
         <Route path="/analytics/:aID" element={<Analytics />} />
       </Routes>
     </RootLayout>
+
+    </>
   );
 };
 

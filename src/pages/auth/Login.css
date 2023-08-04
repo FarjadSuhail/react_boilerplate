@@ -1,0 +1,68 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+/* layout */
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+}
+
+body {
+  background: #f1f1f1;
+  margin: 0;
+  font-family: "Poppins";
+}
+
+/* new workout form */
+label,
+input {
+  display: block !important;
+}
+
+input {
+  padding: 10px !important;
+  margin-top: 10px !important;
+  margin-bottom: 20px !important;
+  width: 100% !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  box-sizing: border-box !important;
+}
+
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+input.error {
+  border: 1px solid var(--error);
+}
+
+
+/* auth forms */
+form.signup,
+form.login {
+  max-width: 400px !important;
+  margin: 40px auto !important;
+  padding: 20px !important;
+  background: #fff !important;
+  border-radius: 4px !important;
+}
+
+h3{
+    font-weight: bold !important;
+}
