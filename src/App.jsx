@@ -12,10 +12,11 @@ import Header from "./layouts/header/Header";
 const App = () => {
   return (
     <>
-    <div className="App">
+    <Header />
+    {/* <div className="App">
       <Header />
       <Login />
-      </div>    
+      </div>     */}
     <RootLayout>
       <Routes>
         <Route path="/" element={<AllApps />} />
