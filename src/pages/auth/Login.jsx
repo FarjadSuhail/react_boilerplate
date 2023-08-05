@@ -1,5 +1,7 @@
 import { useState } from "react"
 // import { useLogin } from "../hooks/useLogin";
+import { useSelector, useDispatch } from 'react-redux';
+import { authActions } from "../../store/slice/auth";
 import "./Login.css";
 
 const Login = () => {
@@ -8,6 +10,8 @@ const Login = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
 //   const {login, error, isLoading} = useLogin();
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -18,31 +22,34 @@ const Login = () => {
         setIsLoading(true)
         setError(null)
 
-        const res = await fetch('http://localhost:8080/api/user/login', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({email, password})
-        })
-        const json = await res.json();
 
-        if (!res.ok) {
-            setIsLoading(false);
-            setError(json.Error);
-        }
-        if (res.ok) {
+    //     const res = await fetch('http://localhost:4000/api/user/login', {
+    //         method: 'POST',
+    //         headers: {'Content-Type': 'application/json'},
+    //         body: JSON.stringify({email, password})
+    //     })
+    //     const json = await res.json();
+
+    //     if (!res.ok) {
+    //         setIsLoading(false);
+    //         setError(json.Error);
+    //     }
+    //     if (res.ok) {
             
-            // save the user to local storage
-            // localStorage.setItem('user', JSON.stringify(json));
+    //         // save the user to local storage
+    //         // localStorage.setItem('user', JSON.stringify(json));
 
-            // update the auth context
-            // dispatch({
-            //     type: 'LOGIN',
-            //     payload: json
-            // })
+    //         // update the auth context
+    //         // dispatch({
+    //         //     type: 'LOGIN',
+    //         //     payload: json
+    //         // })
 
-            setIsLoading(false);
-            setError(null);
-    }
+    //         setIsLoading(false);
+    //         setError(null);
+    // }
+
+    dispatch(authActions.login());
   }
 
   return (

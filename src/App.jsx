@@ -8,16 +8,19 @@ import Settings from "./pages/Settings";
 import Stroage from "./pages/Stroage";
 import Login from "./pages/auth/Login";
 import Header from "./layouts/header/Header";
+import { useSelector } from "react-redux";
 
 const App = () => {
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+  console.log(isAuthenticated);
+
   return (
     <>
     <Header />
-    {/* <div className="App">
-      <Header />
+    {!isAuthenticated && <div className="App">
       <Login />
-      </div>     */}
-    <RootLayout>
+      </div>}    
+    {isAuthenticated && <RootLayout>
       <Routes>
         <Route path="/" element={<AllApps />} />
         <Route path="/authentication" element={<Authentication />} />
@@ -26,7 +29,7 @@ const App = () => {
         <Route path="/build/:bID" element={<Build />} />
         <Route path="/analytics/:aID" element={<Analytics />} />
       </Routes>
-    </RootLayout>
+    </RootLayout>}
 
     </>
   );
